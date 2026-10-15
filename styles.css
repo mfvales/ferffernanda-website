@@ -81,8 +81,7 @@ a{color:inherit;text-decoration:none;}
 /* ---------- header / nav ---------- */
 .site-header{
   position:sticky;top:0;z-index:50;
-  background:rgba(253,250,243,.92);
-  backdrop-filter:saturate(1.1) blur(8px);
+  background:var(--cream);
   border-bottom:1px solid var(--line);
 }
 .nav{
@@ -265,7 +264,7 @@ h1,h2,h3{margin:0;}
 @media (max-width:600px){
   .class-row{grid-template-columns:64px 1fr;gap:6px 10px;}
   .class-row .chip{grid-column:2;justify-self:start;margin-top:2px;}
-  .class-row .bk{grid-column:1 / -1;justify-self:start;margin-top:4px;}
+  .class-row .bk{grid-column:2;justify-self:start;margin-top:8px;}
 }
 .day-off{color:var(--muted);font-size:15px;font-style:italic;font-family:var(--font-serif);}
 .tt-note{margin:18px 0 0;font-size:13.5px;color:var(--muted);}
@@ -399,3 +398,12 @@ label.opt:has(input:checked)::after{content:"♥";margin-left:auto;color:var(--p
 .ci-result{position:relative;}
 .ci-spark{position:absolute;z-index:1;pointer-events:none;animation:cifloat 5s ease-in-out infinite;}
 .tier-sticker{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-script);color:var(--pink);font-size:22px;background:var(--blush);padding:6px 18px;border-radius:100px;transform:rotate(-2deg);margin-bottom:18px;}
+
+/* ---------- brand heart (replaces emoji ♥) ---------- */
+.hrt{width:1em;height:1em;display:inline-block;vertical-align:-.14em;color:var(--pink);}
+.foryou .item span.h{display:inline-flex;align-items:center;}
+
+/* ---------- mobile: legend one-per-line ---------- */
+@media (max-width:600px){
+  .legend{flex-direction:column;gap:10px;align-items:flex-start;}
+}
