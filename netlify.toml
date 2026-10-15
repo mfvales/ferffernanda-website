@@ -1,0 +1,4 @@
+# Own the Plot — static site, no build step
+[build]
+  publish = "."
+  command = ""

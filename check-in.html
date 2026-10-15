@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Honest Check-In — Own the Plot</title>
+<meta name="description" content="A free, 12-question check-in to get honest about how you actually feel — your body, your choices, your everyday — with a personalised note at the end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Caveat:wght@400;600;700&display=swap">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="mark">Own the Plot</span>
+      <span class="by">by ferffernanda</span>
+    </a>
+    <input type="checkbox" id="navtoggle" class="nav-toggle">
+    <div class="nav-links">
+      <a href="index.html#talk">The plot</a>
+      <a href="index.html#work">Work with me</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="tools.html">Tools</a>
+      <a href="https://ferffernanda.substack.com" target="_blank" rel="noopener">Plot Notes</a>
+      <a class="cta" href="schedule.html">Book a class →</a>
+    </div>
+    <label for="navtoggle" class="nav-toggle-label" aria-label="Menu"><span></span><span></span><span></span></label>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="script" style="font-size:26px;margin-bottom:8px">free &amp; actually honest ✦</div>
+    <div class="display">The Honest Check-In<span class="pink">.</span></div>
+    <p>Twelve quick questions to get real about how you actually feel right now — your body, your choices, your everyday. No judgement, no wrong answers. A personalised note at the end.</p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section">
+  <div class="wrap">
+    <div class="checkin">
+
+      <!-- QUESTIONS + LEAD CAPTURE (one Netlify form) -->
+      <form id="checkinForm" name="honest-check-in" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-otp>
+        <input type="hidden" name="form-name" value="honest-check-in">
+        <input type="hidden" name="result" id="resultField" value="">
+        <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
+
+        <div class="ci-start">
+          <p class="lead">First, who's checking in? I'll send your result and the occasional honest note — nothing spammy, promise.</p>
+          <div class="ci-fields">
+            <input type="text" name="name" placeholder="Your first name" aria-label="Your first name" required>
+            <input type="email" name="email" placeholder="Your email" aria-label="Your email" required>
+          </div>
+        </div>
+
+        <!-- Q1 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">01</span><span class="qtext">How does your body feel on a Monday morning?</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q1" value="Mostly okay" data-score="2" required> Mostly okay — I feel ready</label>
+            <label class="opt"><input type="radio" name="q1" value="Depends on the week" data-score="1"> Depends on the week</label>
+            <label class="opt"><input type="radio" name="q1" value="Dread, mostly" data-score="0"> Dread, mostly</label>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">02</span><span class="qtext">When your body sends you signals, what do you do?</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q2" value="I listen to them" data-score="2"> I listen to them</label>
+            <label class="opt"><input type="radio" name="q2" value="I try to" data-score="1"> I try to</label>
+            <label class="opt"><input type="radio" name="q2" value="I've been ignoring them" data-score="0"> I've been ignoring them</label>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">03</span><span class="qtext">Your decisions lately come mostly from…</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q3" value="My own values" data-score="2"> My own values</label>
+            <label class="opt"><input type="radio" name="q3" value="A mix" data-score="1"> A mix</label>
+            <label class="opt"><input type="radio" name="q3" value="What's expected of me" data-score="0"> What's expected of me</label>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">04</span><span class="qtext">When did you last do something that made you feel genuinely alive?</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q4" value="Recently" data-score="2"> Recently</label>
+            <label class="opt"><input type="radio" name="q4" value="A while ago" data-score="1"> A while ago</label>
+            <label class="opt"><input type="radio" name="q4" value="I can't remember" data-score="0"> I can't remember</label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">05</span><span class="qtext">If no one was watching, would you live differently?</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q5" value="No, this is me" data-score="2"> No — this is already me</label>
+            <label class="opt"><input type="radio" name="q5" value="A few things would change" data-score="1"> A few things would change</label>
+            <label class="opt"><input type="radio" name="q5" value="A lot would change" data-score="0"> A lot would change</label>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">06</span><span class="qtext">Your daily routine mostly…</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q6" value="Takes care of me" data-score="2"> Takes care of me</label>
+            <label class="opt"><input type="radio" name="q6" value="Depends" data-score="1"> Depends on the day</label>
+            <label class="opt"><input type="radio" name="q6" value="Demands of me" data-score="0"> Demands of me</label>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">07</span><span class="qtext">Do you make time for yourself each week?</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q7" value="Yes, consistently" data-score="2"> Yes, consistently</label>
+            <label class="opt"><input type="radio" name="q7" value="When I remember to" data-score="1"> When I remember to</label>
+            <label class="opt"><input type="radio" name="q7" value="Not really" data-score="0"> Not really</label>
+          </div>
+          <div class="followup">
+            <div class="fl">When you do — what does it look like? (pick any)</div>
+            <div class="chips-pick">
+              <label class="chip-pick"><input type="checkbox" name="activities" value="Fitness"> Fitness</label>
+              <label class="chip-pick"><input type="checkbox" name="activities" value="Pilates"> Pilates</label>
+              <label class="chip-pick"><input type="checkbox" name="activities" value="Therapy"> Therapy</label>
+              <label class="chip-pick"><input type="checkbox" name="activities" value="Cooking"> Cooking</label>
+              <label class="chip-pick"><input type="checkbox" name="activities" value="Walking"> Walking</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">08</span><span class="qtext">When you think about the next 12 months, you feel…</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q8" value="Excited" data-score="2"> Excited</label>
+            <label class="opt"><input type="radio" name="q8" value="A bit of both" data-score="1"> A bit of both</label>
+            <label class="opt"><input type="radio" name="q8" value="Heavy" data-score="0"> Heavy</label>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">09</span><span class="qtext">That change you've been putting off — where are you with it?</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q9" value="Taking action" data-score="2"> Taking action</label>
+            <label class="opt"><input type="radio" name="q9" value="Started slowly" data-score="1"> Started slowly</label>
+            <label class="opt"><input type="radio" name="q9" value="Still waiting" data-score="0"> Still waiting</label>
+          </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">10</span><span class="qtext">Your life right now feels like…</span></div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="q10" value="I chose this" data-score="2"> A life I chose</label>
+            <label class="opt"><input type="radio" name="q10" value="Parts of it" data-score="1"> Parts of it, anyway</label>
+            <label class="opt"><input type="radio" name="q10" value="It just happened" data-score="0"> A life that just happened</label>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">11</span><span class="qtext">What makes your heart pump with joy?</span></div>
+          <textarea name="joy" placeholder="No wrong answers — the first thing that comes to mind."></textarea>
+        </div>
+
+        <!-- Q12 -->
+        <div class="q">
+          <div class="qrow"><span class="qnum">12</span><span class="qtext">And what raises your heart rate with stress or anxiety?</span></div>
+          <textarea name="anxiety" placeholder="Be honest — it stays between us."></textarea>
+        </div>
+
+        <div class="ci-submit">
+          <button type="submit" class="pill-dark" style="font-size:15px;padding:17px 38px">See my result →</button>
+          <div class="ci-error" id="ciError"></div>
+        </div>
+      </form>
+
+      <!-- RESULT -->
+      <div class="ci-result" id="ciResult">
+        <div class="tier-meter" id="tierMeter"><span></span><span></span><span></span></div>
+        <div class="tier-kicker" id="tierKicker"></div>
+        <div class="tier-title" id="tierTitle"></div>
+        <div class="tier-body" id="tierBody"></div>
+        <div class="tier-actions">
+          <a class="pill-dark" href="https://instagram.com/ferffernanda" target="_blank" rel="noopener">DM me on Instagram →</a>
+          <a class="pill-out" href="schedule.html">Move with me →</a>
+        </div>
+        <p class="form-fine" style="margin-top:26px">Your result is on its way to your inbox too. ♥</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="big">Own the Plot</div>
+      <div class="script">honest talk, powerful action ♥</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="tools.html">Tools</a>
+      <a href="https://instagram.com/ferffernanda" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://ferffernanda.substack.com" target="_blank" rel="noopener">Substack ↗</a>
+    </div>
+  </div>
+  <div class="footer-fine">© 2026 ferffernanda · Dubai — a space to rework your plot and build a life you love.</div>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('checkinForm');
+  var errorEl=document.getElementById('ciError');
+  var TIERS={
+    aligned:{
+      kicker:'mostly aligned ✦',
+      title:"You're more aligned than you think.",
+      body:"Look at you. Most of your life already fits — your body, your choices, your time. That's not luck, it's you paying attention. The work now isn't a big overhaul; it's getting specific. Name the one or two things that still feel off and actually move on them. Don't let “pretty good” quietly talk you out of “really good.”",
+      meter:3
+    },
+    crossroads:{
+      kicker:'at the crossroads ✦',
+      title:"You're standing at a crossroads.",
+      body:"Some parts of your life fit like they're yours. Others feel borrowed. That mix is normal — and it usually means you're between two versions of your life, not stuck at zero. This is the moment to choose a direction on purpose, instead of letting the week choose for you. You don't need the whole map. You need the next honest step.",
+      meter:2
+    },
+    moment:{
+      kicker:'this is the moment ✦',
+      title:"This is your moment.",
+      body:"Okay — real talk. A lot of this isn't feeling like yours right now, and some part of you knew that before the quiz. That's not a verdict, it's a starting line. You don't need a five-year plan or anyone's permission. You need one small, honest move this week that reminds you you're allowed to want more. Start there. I've got you.",
+      meter:1
+    }
+  };
+
+  function scoreAndTier(){
+    var total=0;
+    for(var i=1;i<=10;i++){
+      var sel=form.querySelector('input[name="q'+i+'"]:checked');
+      if(sel) total+=parseInt(sel.getAttribute('data-score'),10);
+    }
+    var key = total>=14 ? 'aligned' : (total>=7 ? 'crossroads' : 'moment');
+    return key;
+  }
+
+  function allAnswered(){
+    for(var i=1;i<=10;i++){
+      if(!form.querySelector('input[name="q'+i+'"]:checked')) return i;
+    }
+    return 0;
+  }
+
+  function showResult(key){
+    var t=TIERS[key];
+    document.getElementById('tierKicker').textContent=t.kicker;
+    document.getElementById('tierTitle').textContent=t.title;
+    document.getElementById('tierBody').textContent=t.body;
+    var dots=document.querySelectorAll('#tierMeter span');
+    dots.forEach(function(d,idx){ d.classList.toggle('on', idx < t.meter); });
+    form.style.display='none';
+    var r=document.getElementById('ciResult');
+    r.style.display='block';
+    r.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    errorEl.textContent='';
+    var name=form.querySelector('input[name="name"]').value.trim();
+    var email=form.querySelector('input[name="email"]').value.trim();
+    if(!name||!email){ errorEl.textContent='Pop your name and email in up top first ♥'; form.querySelector('.ci-start').scrollIntoView({behavior:'smooth',block:'center'}); return; }
+    var missing=allAnswered();
+    if(missing){ errorEl.textContent='Just question '+missing+' left — then you’re done.'; var q=form.querySelectorAll('.q')[missing-1]; if(q) q.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+
+    var key=scoreAndTier();
+    document.getElementById('resultField').value=TIERS[key].title;
+
+    var btn=form.querySelector('button[type=submit]'); if(btn){btn.textContent='One sec…';btn.disabled=true;}
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(){ showResult(key); })
+      .catch(function(){ showResult(key); }); // show result regardless; lead is best-effort
+  });
+})();
+</script>
+</body>
+</html>
