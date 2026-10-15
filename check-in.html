@@ -36,11 +36,17 @@
 </header>
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero ci-hero">
+  <!-- floating illustrations -->
+  <svg class="ci-deco" style="top:14%;left:7%;width:34px;animation-delay:.2s" viewBox="0 0 46 46" fill="#F3C6DF"><path d="M23 3 C25 18 28 21 43 23 C28 25 25 28 23 43 C21 28 18 25 3 23 C18 21 21 18 23 3 Z"/></svg>
+  <svg class="ci-deco" style="top:22%;right:9%;width:26px;animation-delay:1.1s" viewBox="0 0 46 46" fill="#C9007E"><path d="M23 3 C25 18 28 21 43 23 C28 25 25 28 23 43 C21 28 18 25 3 23 C18 21 21 18 23 3 Z"/></svg>
+  <svg class="ci-deco" style="bottom:16%;left:15%;width:30px;animation-delay:.7s" viewBox="0 0 54 54" fill="none" stroke="#C9007E" stroke-width="2"><path d="M27 46 C10 34 6 24 14 17 C19 12.5 25 14 27 19 C29 14 35 12.5 40 17 C48 24 44 34 27 46 Z"/></svg>
+  <!-- saturn, kept on its own -->
+  <svg class="ci-deco" style="bottom:20%;right:11%;width:40px;animation-delay:1.6s" viewBox="0 0 54 54" fill="none" stroke="#C9A9BC" stroke-width="1.8"><circle cx="27" cy="25" r="11"/><ellipse cx="27" cy="25" rx="23" ry="7" transform="rotate(-20 27 25)"/></svg>
   <div class="wrap">
-    <div class="script" style="font-size:26px;margin-bottom:8px">free &amp; actually honest ✦</div>
+    <div class="script" style="font-size:27px;margin-bottom:8px">free &amp; a little too honest ✦</div>
     <div class="display">The Honest Check-In<span class="pink">.</span></div>
-    <p>Twelve quick questions to get real about how you actually feel right now — your body, your choices, your everyday. No judgement, no wrong answers. A personalised note at the end.</p>
+    <p>Twelve quick questions to get real about how you actually feel right now — your body, your choices, your everyday. No judgement, no wrong answers, no one grading you. Just a little mirror, and a note from me at the end.</p>
   </div>
 </section>
 
@@ -49,6 +55,12 @@
   <div class="wrap">
     <div class="checkin">
 
+      <!-- progress -->
+      <div class="ci-progress-wrap">
+        <div class="ci-bar"><div class="ci-bar-fill" id="ciFill"></div></div>
+        <div class="ci-bar-label" id="ciProg">let's go ✦</div>
+      </div>
+
       <!-- QUESTIONS + LEAD CAPTURE (one Netlify form) -->
       <form id="checkinForm" name="honest-check-in" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-otp>
         <input type="hidden" name="form-name" value="honest-check-in">
@@ -56,7 +68,7 @@
         <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
 
         <div class="ci-start">
-          <p class="lead">First, who's checking in? I'll send your result and the occasional honest note — nothing spammy, promise.</p>
+          <p class="lead">First — who's checking in? ♥ I'll send your result and the occasional honest note. Nothing spammy, pinky promise.</p>
           <div class="ci-fields">
             <input type="text" name="name" placeholder="Your first name" aria-label="Your first name" required>
             <input type="email" name="email" placeholder="Your email" aria-label="Your email" required>
@@ -132,7 +144,7 @@
             <label class="opt"><input type="radio" name="q7" value="Not really" data-score="0"> Not really</label>
           </div>
           <div class="followup">
-            <div class="fl">When you do — what does it look like? (pick any)</div>
+            <div class="fl">When you do — what does it look like? (pick any ♥)</div>
             <div class="chips-pick">
               <label class="chip-pick"><input type="checkbox" name="activities" value="Fitness"> Fitness</label>
               <label class="chip-pick"><input type="checkbox" name="activities" value="Pilates"> Pilates</label>
@@ -175,14 +187,14 @@
 
         <!-- Q11 -->
         <div class="q">
-          <div class="qrow"><span class="qnum">11</span><span class="qtext">What makes your heart pump with joy?</span></div>
-          <textarea name="joy" placeholder="No wrong answers — the first thing that comes to mind."></textarea>
+          <div class="qrow"><span class="qnum">11</span><span class="qtext">What makes your heart pump with joy? <svg width="19" height="19" viewBox="0 0 54 54" fill="none" stroke="#C9007E" stroke-width="2.4" style="vertical-align:middle"><path d="M27 46 C10 34 6 24 14 17 C19 12.5 25 14 27 19 C29 14 35 12.5 40 17 C48 24 44 34 27 46 Z"/></svg></span></div>
+          <textarea name="joy" placeholder="No wrong answers — first thing that pops into your head."></textarea>
         </div>
 
         <!-- Q12 -->
         <div class="q">
           <div class="qrow"><span class="qnum">12</span><span class="qtext">And what raises your heart rate with stress or anxiety?</span></div>
-          <textarea name="anxiety" placeholder="Be honest — it stays between us."></textarea>
+          <textarea name="anxiety" placeholder="Be honest — it stays between us. ✦"></textarea>
         </div>
 
         <div class="ci-submit">
@@ -192,16 +204,18 @@
       </form>
 
       <!-- RESULT -->
-      <div class="ci-result" id="ciResult">
+      <div class="ci-result" id="ciResult" style="display:none">
+        <svg class="ci-spark" style="top:-6px;left:12%;width:30px;animation-delay:.2s" viewBox="0 0 46 46" fill="#F3C6DF"><path d="M23 3 C25 18 28 21 43 23 C28 25 25 28 23 43 C21 28 18 25 3 23 C18 21 21 18 23 3 Z"/></svg>
+        <svg class="ci-spark" style="top:30px;right:14%;width:22px;animation-delay:1s" viewBox="0 0 46 46" fill="#C9007E"><path d="M23 3 C25 18 28 21 43 23 C28 25 25 28 23 43 C21 28 18 25 3 23 C18 21 21 18 23 3 Z"/></svg>
         <div class="tier-meter" id="tierMeter"><span></span><span></span><span></span></div>
-        <div class="tier-kicker" id="tierKicker"></div>
+        <div class="tier-sticker" id="tierKicker"></div>
         <div class="tier-title" id="tierTitle"></div>
         <div class="tier-body" id="tierBody"></div>
         <div class="tier-actions">
           <a class="pill-dark" href="https://instagram.com/ferffernanda" target="_blank" rel="noopener">DM me on Instagram →</a>
           <a class="pill-out" href="schedule.html">Move with me →</a>
         </div>
-        <p class="form-fine" style="margin-top:26px">Your result is on its way to your inbox too. ♥</p>
+        <p class="form-fine" style="margin-top:26px">Your result just landed in your inbox too. ♥</p>
       </div>
 
     </div>
@@ -230,6 +244,8 @@
 (function(){
   var form=document.getElementById('checkinForm');
   var errorEl=document.getElementById('ciError');
+  var fill=document.getElementById('ciFill');
+  var prog=document.getElementById('ciProg');
   var TIERS={
     aligned:{
       kicker:'mostly aligned ✦',
@@ -251,31 +267,40 @@
     }
   };
 
+  function answeredCount(){
+    var done=0;
+    for(var i=1;i<=10;i++){ if(form.querySelector('input[name="q'+i+'"]:checked')) done++; }
+    return done;
+  }
+  function updateProgress(){
+    var done=answeredCount();
+    fill.style.width=(done/10*100)+'%';
+    if(done===0) prog.textContent='let’s go ✦';
+    else if(done<10) prog.textContent=done+'/10';
+    else prog.textContent='done — see it ♥';
+  }
+  form.addEventListener('change', updateProgress);
+
   function scoreAndTier(){
     var total=0;
     for(var i=1;i<=10;i++){
       var sel=form.querySelector('input[name="q'+i+'"]:checked');
       if(sel) total+=parseInt(sel.getAttribute('data-score'),10);
     }
-    var key = total>=14 ? 'aligned' : (total>=7 ? 'crossroads' : 'moment');
-    return key;
+    return total>=14 ? 'aligned' : (total>=7 ? 'crossroads' : 'moment');
   }
-
-  function allAnswered(){
-    for(var i=1;i<=10;i++){
-      if(!form.querySelector('input[name="q'+i+'"]:checked')) return i;
-    }
+  function firstUnanswered(){
+    for(var i=1;i<=10;i++){ if(!form.querySelector('input[name="q'+i+'"]:checked')) return i; }
     return 0;
   }
-
   function showResult(key){
     var t=TIERS[key];
     document.getElementById('tierKicker').textContent=t.kicker;
     document.getElementById('tierTitle').textContent=t.title;
     document.getElementById('tierBody').textContent=t.body;
-    var dots=document.querySelectorAll('#tierMeter span');
-    dots.forEach(function(d,idx){ d.classList.toggle('on', idx < t.meter); });
+    document.querySelectorAll('#tierMeter span').forEach(function(d,idx){ d.classList.toggle('on', idx < t.meter); });
     form.style.display='none';
+    document.querySelector('.ci-progress-wrap').style.display='none';
     var r=document.getElementById('ciResult');
     r.style.display='block';
     r.scrollIntoView({behavior:'smooth',block:'start'});
@@ -287,16 +312,15 @@
     var name=form.querySelector('input[name="name"]').value.trim();
     var email=form.querySelector('input[name="email"]').value.trim();
     if(!name||!email){ errorEl.textContent='Pop your name and email in up top first ♥'; form.querySelector('.ci-start').scrollIntoView({behavior:'smooth',block:'center'}); return; }
-    var missing=allAnswered();
-    if(missing){ errorEl.textContent='Just question '+missing+' left — then you’re done.'; var q=form.querySelectorAll('.q')[missing-1]; if(q) q.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+    var missing=firstUnanswered();
+    if(missing){ errorEl.textContent='Just question '+missing+' left — then you’re done ✦'; var q=form.querySelectorAll('.q')[missing-1]; if(q) q.scrollIntoView({behavior:'smooth',block:'center'}); return; }
 
     var key=scoreAndTier();
     document.getElementById('resultField').value=TIERS[key].title;
-
     var btn=form.querySelector('button[type=submit]'); if(btn){btn.textContent='One sec…';btn.disabled=true;}
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
       .then(function(){ showResult(key); })
-      .catch(function(){ showResult(key); }); // show result regardless; lead is best-effort
+      .catch(function(){ showResult(key); });
   });
 })();
 </script>

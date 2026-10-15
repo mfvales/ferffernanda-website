@@ -381,3 +381,21 @@ label.chip-pick:has(input:checked){border-color:var(--pink);background:var(--blu
 @media (max-width:600px){
   .ci-result .tier-actions .pill-dark,.ci-result .tier-actions .pill-out{width:100%;justify-content:center;}
 }
+
+/* ---------- check-in: playful layer ---------- */
+.ci-hero{position:relative;overflow:hidden;}
+.ci-hero .wrap{position:relative;z-index:2;}
+.ci-deco{position:absolute;z-index:1;pointer-events:none;opacity:.95;animation:cifloat 6s ease-in-out infinite;}
+@keyframes cifloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(7deg)}}
+.ci-progress-wrap{max-width:760px;margin:0 auto 30px;display:flex;align-items:center;gap:14px;}
+.ci-bar{flex:1;height:10px;border-radius:100px;background:var(--blush);overflow:hidden;box-shadow:inset 0 1px 2px rgba(201,0,126,.08);}
+.ci-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--soft-pink),var(--pink));border-radius:100px;transition:width .5s cubic-bezier(.34,1.3,.64,1);}
+.ci-bar-label{font-family:var(--font-script);color:var(--pink);font-size:21px;white-space:nowrap;min-width:92px;text-align:right;}
+label.opt{position:relative;}
+label.opt:has(input:checked)::after{content:"♥";margin-left:auto;color:var(--pink);font-size:15px;animation:cipop .35s cubic-bezier(.5,.1,.3,1.6);}
+@keyframes cipop{0%{transform:scale(0)}70%{transform:scale(1.35)}100%{transform:scale(1)}}
+.q{position:relative;}
+.q .qnum{transition:transform .2s;}
+.ci-result{position:relative;}
+.ci-spark{position:absolute;z-index:1;pointer-events:none;animation:cifloat 5s ease-in-out infinite;}
+.tier-sticker{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-script);color:var(--pink);font-size:22px;background:var(--blush);padding:6px 18px;border-radius:100px;transform:rotate(-2deg);margin-bottom:18px;}
