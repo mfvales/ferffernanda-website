@@ -268,6 +268,40 @@ h1,h2,h3{margin:0;}
 }
 .day-off{color:var(--muted);font-size:15px;font-style:italic;font-family:var(--font-serif);}
 .tt-note{margin:18px 0 0;font-size:13.5px;color:var(--muted);}
+
+/* ---------- weekly calendar ---------- */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:6px;align-items:start;}
+.cal-col{display:flex;flex-direction:column;}
+.cal-day{font-family:var(--font-serif);font-size:19px;line-height:1.1;padding-bottom:10px;margin-bottom:12px;border-bottom:2px solid var(--ink);}
+.cal-day span{display:block;font-family:var(--font-sans);font-size:10.5px;font-style:italic;color:var(--muted);margin-top:5px;letter-spacing:.02em;}
+.cal-events{display:flex;flex-direction:column;gap:9px;}
+a.ev{display:block;padding:11px 12px;border-radius:12px;color:var(--ink);transition:transform .12s ease,box-shadow .12s ease;}
+a.ev:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(30,26,24,.12);}
+.ev-time{display:block;font-family:var(--font-serif);font-style:italic;font-size:17px;line-height:1;margin-bottom:5px;}
+.ev-name{display:block;font-size:13px;font-weight:600;line-height:1.25;}
+.ev-where{display:block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.6;margin-top:6px;}
+.ev-306{background:#DCEBF6;} .ev-306 .ev-time{color:#1f4a5e;}
+.ev-vybe{background:#F2C2DB;} .ev-vybe .ev-time{color:#8E1259;}
+.ev-aera{background:#FBE4EF;} .ev-aera .ev-time{color:#C9007E;}
+.cal-rest .cal-day{border-bottom-color:var(--line);}
+.cal-off{font-family:var(--font-serif);font-style:italic;font-size:13px;color:var(--muted);line-height:1.5;display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.tap-note{font-size:12.5px;color:var(--muted);font-style:italic;margin:2px 0 22px;}
+@media (max-width:1000px){
+  .cal{grid-template-columns:repeat(2,1fr);gap:24px 16px;}
+  .cal-rest{grid-column:1 / -1;}
+}
+@media (max-width:620px){
+  .cal{grid-template-columns:1fr;gap:0;}
+  .cal-col{border-bottom:1px solid var(--line);padding:18px 0;}
+  .cal-col:first-child{border-top:1px solid var(--line);}
+  .cal-day{border-bottom:none;margin-bottom:12px;font-size:25px;display:flex;align-items:baseline;gap:12px;}
+  .cal-day span{margin-top:0;}
+  a.ev{display:grid;grid-template-columns:72px 1fr;column-gap:12px;align-items:center;padding:13px 14px;}
+  a.ev:hover{transform:none;box-shadow:none;}
+  .ev-time{margin-bottom:0;font-size:18px;}
+  .ev-name{font-size:14.5px;}
+  .ev-where{grid-column:2;margin-top:3px;}
+}
 @media (max-width:600px){
   .day{grid-template-columns:1fr;gap:12px;}
 }
